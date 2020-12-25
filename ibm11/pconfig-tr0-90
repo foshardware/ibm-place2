@@ -1,0 +1,5 @@
+defName         ibm11-tr0-90.def
+lefName         ibm11-5l.lef
+inputFormat     SiliconEnsemble
+inputGCFConstraints     ibm11.gcf
+inputGCFTimingLibraries ibm11.tim

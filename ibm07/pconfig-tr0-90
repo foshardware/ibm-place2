@@ -1,0 +1,5 @@
+defName         ibm07-tr0-90.def
+lefName         ibm07-5l.lef
+inputFormat     SiliconEnsemble
+inputGCFConstraints     ibm07.gcf
+inputGCFTimingLibraries ibm07.tim

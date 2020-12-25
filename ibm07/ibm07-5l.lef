@@ -1,0 +1,3748 @@
+VERSION 5.1 ;
+
+NAMESCASESENSITIVE ON ;
+
+UNITS
+    DATABASE MICRONS 100 ;
+END UNITS
+
+LAYER POLY1
+    TYPE MASTERSLICE ;
+END POLY1
+
+LAYER METAL1
+    TYPE ROUTING ;
+    WIDTH 0.23 ;
+    SPACING 0.23 ;
+    SPACING 0.6 RANGE 10.0 100000.0 ;
+    PITCH 0.56 ;
+    DIRECTION HORIZONTAL ;
+END METAL1
+
+LAYER VIA12
+    TYPE CUT ;
+END VIA12
+
+LAYER METAL2
+    TYPE ROUTING ;
+    WIDTH 0.28 ;
+    SPACING 0.28 ;
+    SPACING 0.6 RANGE 10.0 100000.0 ;
+    PITCH 0.66 ;
+    DIRECTION VERTICAL ;
+END METAL2
+
+LAYER VIA23
+    TYPE CUT ;
+END VIA23
+
+LAYER METAL3
+    TYPE ROUTING ;
+    WIDTH 0.28 ;
+    SPACING 0.28 ;
+    SPACING 0.6 RANGE 10.0 100000.0 ;
+    PITCH 0.56 ;
+    DIRECTION HORIZONTAL ;
+END METAL3
+
+LAYER VIA34
+    TYPE CUT ;
+END VIA34
+
+LAYER METAL4
+    TYPE ROUTING ;
+    WIDTH 0.28 ;
+    SPACING 0.28 ;
+    SPACING 0.6 RANGE 10.0 100000.0 ;
+    PITCH 0.66 ;
+    DIRECTION VERTICAL ;
+END METAL4
+
+LAYER VIA45
+    TYPE CUT ;
+END VIA45
+
+LAYER METAL5
+    TYPE ROUTING ;
+    WIDTH 0.44 ;
+    SPACING 0.46 ;
+    SPACING 0.6 RANGE 10.0 100000.0 ;
+    PITCH 1.12 ;
+    DIRECTION HORIZONTAL ;
+END METAL5
+
+LAYER OVERLAP
+    TYPE OVERLAP ;
+END OVERLAP
+
+VIA via1 DEFAULT
+    LAYER METAL1 ;
+        RECT -0.19 -0.14 0.19 0.14 ;
+    LAYER VIA12 ;
+        RECT -0.13 -0.13 0.13 0.13 ;
+    LAYER METAL2 ;
+        RECT -0.19 -0.14 0.19 0.14 ;
+END via1
+
+VIA via2 DEFAULT
+    LAYER METAL2 ;
+        RECT -0.19 -0.14 0.19 0.14 ;
+    LAYER VIA23 ;
+        RECT -0.13 -0.13 0.13 0.13 ;
+    LAYER METAL3 ;
+        RECT -0.19 -0.14 0.19 0.14 ;
+END via2
+
+VIA via3 DEFAULT
+    LAYER METAL3 ;
+        RECT -0.19 -0.14 0.19 0.14 ;
+    LAYER VIA34 ;
+        RECT -0.13 -0.13 0.13 0.13 ;
+    LAYER METAL4 ;
+        RECT -0.19 -0.14 0.19 0.14 ;
+END via3
+
+VIA via4 DEFAULT
+    LAYER METAL4 ;
+        RECT -0.24 -0.19 0.24 0.19 ;
+    LAYER VIA45 ;
+        RECT -0.18 -0.18 0.18 0.18 ;
+    LAYER METAL5 ;
+        RECT -0.27 -0.27 0.27 0.27 ;
+END via4
+
+SPACING
+    SAMENET METAL1 METAL1 0.23 ;
+    SAMENET METAL2 METAL2 0.28 ;
+    SAMENET METAL3 METAL3 0.28 ;
+    SAMENET METAL4 METAL4 0.28 ;
+    SAMENET METAL5 METAL5 0.46 ;
+    SAMENET VIA12 VIA12 0.26 ;
+    SAMENET VIA23 VIA23 0.26 ;
+    SAMENET VIA34 VIA34 0.26 ;
+    SAMENET VIA45 VIA34 0.35 ;
+END SPACING
+
+SITE core
+    SIZE 0.66 BY 5.04 ;
+    CLASS CORE ;
+    SYMMETRY y ;
+END core
+
+MACRO mod0
+    CLASS CORE ;
+    SIZE 6.60 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.9800 0.0000 1.2200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.0800 0.0000 2.3200 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1800 0.0000 3.4200 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.2800 0.0000 4.5200 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.3800 0.0000 5.6200 5.0400 ;
+        END
+    END P4
+END mod0
+
+MACRO mod1
+    CLASS CORE ;
+    SIZE 2.64 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.5400 0.0000 0.7800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P2
+END mod1
+
+MACRO mod2
+    CLASS CORE ;
+    SIZE 1.32 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.3200 0.0000 0.5600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.7600 0.0000 1.0000 5.0400 ;
+        END
+    END P1
+END mod2
+
+MACRO mod3
+    CLASS CORE ;
+    SIZE 13.20 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.5300 0.0000 1.7700 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1800 0.0000 3.4200 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.8300 0.0000 5.0700 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.1300 0.0000 8.3700 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.7800 0.0000 10.0200 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.4300 0.0000 11.6700 5.0400 ;
+        END
+    END P6
+END mod3
+
+MACRO mod4
+    CLASS CORE ;
+    SIZE 3.96 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.8700 0.0000 1.1100 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.8500 0.0000 3.0900 5.0400 ;
+        END
+    END P2
+END mod4
+
+MACRO mod5
+    CLASS CORE ;
+    SIZE 10.56 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.6400 0.0000 1.8800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.4000 0.0000 3.6400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.9200 0.0000 7.1600 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.6800 0.0000 8.9200 5.0400 ;
+        END
+    END P4
+END mod5
+
+MACRO mod6
+    CLASS CORE ;
+    SIZE 5.28 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.9400 0.0000 1.1800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.0000 0.0000 2.2400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.0400 0.0000 3.2800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.1000 0.0000 4.3400 5.0400 ;
+        END
+    END P3
+END mod6
+
+MACRO mod7
+    CLASS CORE ;
+    SIZE 11.88 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.0700 0.0000 1.3100 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.2600 0.0000 2.5000 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.4500 0.0000 3.6900 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.6400 0.0000 4.8800 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.8200 0.0000 6.0600 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.0000 0.0000 7.2400 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.1900 0.0000 8.4300 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.3800 0.0000 9.6200 5.0400 ;
+        END
+    END P7
+    PIN P8
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.5700 0.0000 10.8100 5.0400 ;
+        END
+    END P8
+END mod7
+
+MACRO mod8
+    CLASS CORE ;
+    SIZE 5.28 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.7600 0.0000 1.0000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.6400 0.0000 1.8800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.4000 0.0000 3.6400 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.2800 0.0000 4.5200 5.0400 ;
+        END
+    END P4
+END mod8
+
+MACRO mod9
+    CLASS CORE ;
+    SIZE 11.88 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.5800 0.0000 1.8200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.2800 0.0000 3.5200 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.9800 0.0000 5.2200 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.6600 0.0000 6.9000 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.3600 0.0000 8.6000 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.0600 0.0000 10.3000 5.0400 ;
+        END
+    END P5
+END mod9
+
+MACRO mod10
+    CLASS CORE ;
+    SIZE 10.56 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.9400 0.0000 1.1800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.0000 0.0000 2.2400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.0500 0.0000 3.2900 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.1100 0.0000 4.3500 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.2100 0.0000 6.4500 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.2700 0.0000 7.5100 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.3200 0.0000 8.5600 5.0400 ;
+        END
+    END P7
+    PIN P8
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.3800 0.0000 9.6200 5.0400 ;
+        END
+    END P8
+END mod10
+
+MACRO mod11
+    CLASS CORE ;
+    SIZE 10.56 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.0600 0.0000 1.3000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.2300 0.0000 2.4700 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.4100 0.0000 3.6500 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.5800 0.0000 4.8200 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.7400 0.0000 5.9800 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.9200 0.0000 7.1600 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.0900 0.0000 8.3300 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.2600 0.0000 9.5000 5.0400 ;
+        END
+    END P7
+END mod11
+
+MACRO mod12
+    CLASS CORE ;
+    SIZE 2.64 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.7600 0.0000 1.0000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.6400 0.0000 1.8800 5.0400 ;
+        END
+    END P1
+END mod12
+
+MACRO mod13
+    CLASS CORE ;
+    SIZE 3.96 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.6800 0.0000 0.9200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.4700 0.0000 1.7100 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.2500 0.0000 2.4900 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.0400 0.0000 3.2800 5.0400 ;
+        END
+    END P3
+END mod13
+
+MACRO mod14
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P0
+END mod14
+
+MACRO mod15
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.7300 0.0000 1.9700 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.5800 0.0000 3.8200 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.4200 0.0000 5.6600 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.2700 0.0000 7.5100 5.0400 ;
+        END
+    END P3
+END mod15
+
+MACRO mod16
+    CLASS CORE ;
+    SIZE 14.52 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.7200 0.0000 4.9600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.5600 0.0000 9.8000 5.0400 ;
+        END
+    END P1
+END mod16
+
+MACRO mod17
+    CLASS CORE ;
+    SIZE 19.80 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.7100 0.0000 2.9500 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.5400 0.0000 5.7800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.3700 0.0000 8.6100 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.1900 0.0000 11.4300 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 14.0200 0.0000 14.2600 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 16.8500 0.0000 17.0900 5.0400 ;
+        END
+    END P5
+END mod17
+
+MACRO mod18
+    CLASS CORE ;
+    SIZE 3.96 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.5400 0.0000 0.7800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1800 0.0000 3.4200 5.0400 ;
+        END
+    END P4
+END mod18
+
+MACRO mod19
+    CLASS CORE ;
+    SIZE 2.64 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+END mod19
+
+MACRO mod20
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P5
+END mod20
+
+MACRO mod21
+    CLASS CORE ;
+    SIZE 6.60 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.8300 0.0000 1.0700 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.7700 0.0000 2.0100 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.7100 0.0000 2.9500 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.6500 0.0000 3.8900 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.5900 0.0000 4.8300 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.5300 0.0000 5.7700 5.0400 ;
+        END
+    END P5
+END mod21
+
+MACRO mod22
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P4
+END mod22
+
+MACRO mod23
+    CLASS CORE ;
+    SIZE 1.32 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.5400 0.0000 0.7800 5.0400 ;
+        END
+    END P0
+END mod23
+
+MACRO mod24
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.4200 0.0000 1.6600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.9600 0.0000 3.2000 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.5000 0.0000 4.7400 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.0400 0.0000 6.2800 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.5800 0.0000 7.8200 5.0400 ;
+        END
+    END P4
+END mod24
+
+MACRO mod25
+    CLASS CORE ;
+    SIZE 3.96 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P1
+END mod25
+
+MACRO mod26
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.9600 0.0000 3.2000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.0400 0.0000 6.2800 5.0400 ;
+        END
+    END P1
+END mod26
+
+MACRO mod27
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.0200 0.0000 1.2600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.1500 0.0000 2.3900 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.2800 0.0000 3.5200 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.4000 0.0000 4.6400 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.5300 0.0000 5.7700 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.6600 0.0000 6.9000 5.0400 ;
+        END
+    END P5
+END mod27
+
+MACRO mod28
+    CLASS CORE ;
+    SIZE 22.44 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.3800 0.0000 2.6200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.8700 0.0000 5.1100 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.3600 0.0000 7.6000 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.8600 0.0000 10.1000 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 12.3400 0.0000 12.5800 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 14.8300 0.0000 15.0700 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 17.3300 0.0000 17.5700 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 19.8200 0.0000 20.0600 5.0400 ;
+        END
+    END P7
+END mod28
+
+MACRO mod29
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.9100 0.0000 1.1500 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.9400 0.0000 2.1800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.9600 0.0000 3.2000 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.9900 0.0000 4.2300 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.0100 0.0000 5.2500 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.0300 0.0000 6.2700 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.0600 0.0000 7.3000 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.0900 0.0000 8.3300 5.0400 ;
+        END
+    END P7
+END mod29
+
+MACRO mod30
+    CLASS CORE ;
+    SIZE 5.28 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.6400 0.0000 1.8800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.4000 0.0000 3.6400 5.0400 ;
+        END
+    END P1
+END mod30
+
+MACRO mod31
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.0400 0.0000 1.2800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.1900 0.0000 2.4300 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.3500 0.0000 3.5900 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.5000 0.0000 4.7400 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.6500 0.0000 5.8900 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.8100 0.0000 7.0500 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.9600 0.0000 8.2000 5.0400 ;
+        END
+    END P6
+END mod31
+
+MACRO mod32
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.8700 0.0000 1.1100 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.8500 0.0000 3.0900 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.8300 0.0000 5.0700 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.8200 0.0000 6.0600 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.8100 0.0000 7.0500 5.0400 ;
+        END
+    END P6
+END mod32
+
+MACRO mod33
+    CLASS CORE ;
+    SIZE 13.20 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.7700 0.0000 2.0100 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.6600 0.0000 3.9000 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.5400 0.0000 5.7800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.4200 0.0000 7.6600 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.3000 0.0000 9.5400 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.1900 0.0000 11.4300 5.0400 ;
+        END
+    END P5
+END mod33
+
+MACRO mod34
+    CLASS CORE ;
+    SIZE 10.56 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.0000 0.0000 2.2400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.1100 0.0000 4.3500 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.2100 0.0000 6.4500 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.3200 0.0000 8.5600 5.0400 ;
+        END
+    END P3
+END mod34
+
+MACRO mod35
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.8100 0.0000 1.0500 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.7300 0.0000 1.9700 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.6600 0.0000 2.9000 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.5800 0.0000 3.8200 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.5000 0.0000 4.7400 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.4200 0.0000 5.6600 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.3400 0.0000 6.5800 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.2700 0.0000 7.5100 5.0400 ;
+        END
+    END P7
+    PIN P8
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.1900 0.0000 8.4300 5.0400 ;
+        END
+    END P8
+END mod35
+
+MACRO mod36
+    CLASS CORE ;
+    SIZE 5.28 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P2
+END mod36
+
+MACRO mod37
+    CLASS CORE ;
+    SIZE 11.88 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.8200 0.0000 6.0600 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.7800 0.0000 10.0200 5.0400 ;
+        END
+    END P4
+END mod37
+
+MACRO mod38
+    CLASS CORE ;
+    SIZE 5.28 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P0
+END mod38
+
+MACRO mod39
+    CLASS CORE ;
+    SIZE 13.20 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.2800 0.0000 4.5200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.6800 0.0000 8.9200 5.0400 ;
+        END
+    END P1
+END mod39
+
+MACRO mod40
+    CLASS CORE ;
+    SIZE 14.52 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.1400 0.0000 7.3800 5.0400 ;
+        END
+    END P0
+END mod40
+
+MACRO mod41
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P1
+END mod41
+
+MACRO mod43
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.8200 0.0000 6.0600 5.0400 ;
+        END
+    END P2
+END mod43
+
+MACRO mod44
+    CLASS CORE ;
+    SIZE 3.96 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P0
+END mod44
+
+MACRO mod45
+    CLASS CORE ;
+    SIZE 10.56 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P2
+END mod45
+
+MACRO mod46
+    CLASS CORE ;
+    SIZE 17.16 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.7900 0.0000 2.0300 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.7000 0.0000 3.9400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.6100 0.0000 5.8500 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.5100 0.0000 7.7500 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.4100 0.0000 9.6500 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.3200 0.0000 11.5600 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.2200 0.0000 13.4600 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 15.1300 0.0000 15.3700 5.0400 ;
+        END
+    END P7
+END mod46
+
+MACRO mod47
+    CLASS CORE ;
+    SIZE 21.12 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.9000 0.0000 3.1400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.9200 0.0000 6.1600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.9400 0.0000 9.1800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.9400 0.0000 12.1800 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 14.9600 0.0000 15.2000 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 17.9800 0.0000 18.2200 5.0400 ;
+        END
+    END P5
+END mod47
+
+MACRO mod48
+    CLASS CORE ;
+    SIZE 17.16 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.3200 0.0000 3.5600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.7500 0.0000 6.9900 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.1700 0.0000 10.4100 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.6000 0.0000 13.8400 5.0400 ;
+        END
+    END P3
+END mod48
+
+MACRO mod49
+    CLASS CORE ;
+    SIZE 13.20 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P0
+END mod49
+
+MACRO mod50
+    CLASS CORE ;
+    SIZE 6.60 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1800 0.0000 3.4200 5.0400 ;
+        END
+    END P0
+END mod50
+
+MACRO mod51
+    CLASS CORE ;
+    SIZE 19.80 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1800 0.0000 3.4200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.7800 0.0000 10.0200 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.0800 0.0000 13.3200 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 16.3800 0.0000 16.6200 5.0400 ;
+        END
+    END P4
+END mod51
+
+MACRO mod52
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.4700 0.0000 1.7100 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.0500 0.0000 3.2900 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.6300 0.0000 4.8700 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.2100 0.0000 6.4500 5.0400 ;
+        END
+    END P3
+END mod52
+
+MACRO mod53
+    CLASS CORE ;
+    SIZE 17.16 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.6000 0.0000 1.8400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.3200 0.0000 3.5600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.0300 0.0000 5.2700 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.7500 0.0000 6.9900 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.4600 0.0000 8.7000 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.1700 0.0000 10.4100 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.8900 0.0000 12.1300 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.6000 0.0000 13.8400 5.0400 ;
+        END
+    END P7
+    PIN P8
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 15.3200 0.0000 15.5600 5.0400 ;
+        END
+    END P8
+END mod53
+
+MACRO mod54
+    CLASS CORE ;
+    SIZE 6.60 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P3
+END mod54
+
+MACRO mod55
+    CLASS CORE ;
+    SIZE 11.88 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.3700 0.0000 1.6100 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.8500 0.0000 3.0900 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.3400 0.0000 4.5800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.8200 0.0000 6.0600 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.3000 0.0000 7.5400 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.7900 0.0000 9.0300 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.2700 0.0000 10.5100 5.0400 ;
+        END
+    END P6
+END mod55
+
+MACRO mod56
+    CLASS CORE ;
+    SIZE 11.88 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.2600 0.0000 2.5000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.6400 0.0000 4.8800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.0000 0.0000 7.2400 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.3800 0.0000 9.6200 5.0400 ;
+        END
+    END P3
+END mod56
+
+MACRO mod57
+    CLASS CORE ;
+    SIZE 9.24 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.1900 0.0000 2.4300 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.5000 0.0000 4.7400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.8100 0.0000 7.0500 5.0400 ;
+        END
+    END P2
+END mod57
+
+MACRO mod58
+    CLASS CORE ;
+    SIZE 10.56 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.1200 0.0000 9.3600 5.0400 ;
+        END
+    END P6
+END mod58
+
+MACRO mod59
+    CLASS CORE ;
+    SIZE 14.52 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.5000 0.0000 1.7400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1100 0.0000 3.3500 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.7200 0.0000 4.9600 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.3400 0.0000 6.5800 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.9400 0.0000 8.1800 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.5500 0.0000 9.7900 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.1700 0.0000 11.4100 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 12.7800 0.0000 13.0200 5.0400 ;
+        END
+    END P7
+END mod59
+
+MACRO mod60
+    CLASS CORE ;
+    SIZE 10.56 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.3900 0.0000 1.6300 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.9000 0.0000 3.1400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.4100 0.0000 4.6500 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.9100 0.0000 6.1500 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.4200 0.0000 7.6600 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.9300 0.0000 9.1700 5.0400 ;
+        END
+    END P5
+END mod60
+
+MACRO mod61
+    CLASS CORE ;
+    SIZE 6.60 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.7100 0.0000 0.9500 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.5300 0.0000 1.7700 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.3600 0.0000 2.6000 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1800 0.0000 3.4200 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.0000 0.0000 4.2400 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.8300 0.0000 5.0700 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.6500 0.0000 5.8900 5.0400 ;
+        END
+    END P6
+END mod61
+
+MACRO mod62
+    CLASS CORE ;
+    SIZE 23.76 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 15.7200 0.0000 15.9600 5.0400 ;
+        END
+    END P1
+END mod62
+
+MACRO mod63
+    CLASS CORE ;
+    SIZE 11.88 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.8500 0.0000 3.0900 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.8200 0.0000 6.0600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.7900 0.0000 9.0300 5.0400 ;
+        END
+    END P2
+END mod63
+
+MACRO mod64
+    CLASS CORE ;
+    SIZE 6.60 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.0800 0.0000 2.3200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.2800 0.0000 4.5200 5.0400 ;
+        END
+    END P1
+END mod64
+
+MACRO mod65
+    CLASS CORE ;
+    SIZE 21.12 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.4000 0.0000 3.6400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.9200 0.0000 7.1600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.4400 0.0000 10.6800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.9600 0.0000 14.2000 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 17.4800 0.0000 17.7200 5.0400 ;
+        END
+    END P4
+END mod65
+
+MACRO mod66
+    CLASS CORE ;
+    SIZE 14.52 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.9600 0.0000 2.2000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.0300 0.0000 4.2700 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.1100 0.0000 6.3500 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.1700 0.0000 8.4100 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.2500 0.0000 10.4900 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 12.3200 0.0000 12.5600 5.0400 ;
+        END
+    END P5
+END mod66
+
+MACRO mod67
+    CLASS CORE ;
+    SIZE 7.92 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 0.7600 0.0000 1.0000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.6400 0.0000 1.8800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.4000 0.0000 3.6400 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.2800 0.0000 4.5200 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.0400 0.0000 6.2800 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.9200 0.0000 7.1600 5.0400 ;
+        END
+    END P7
+END mod67
+
+MACRO mod68
+    CLASS CORE ;
+    SIZE 17.16 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.7400 0.0000 2.9800 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.6000 0.0000 5.8400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.4600 0.0000 8.7000 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.3200 0.0000 11.5600 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 14.1800 0.0000 14.4200 5.0400 ;
+        END
+    END P4
+END mod68
+
+MACRO mod69
+    CLASS CORE ;
+    SIZE 15.84 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.8600 0.0000 2.1000 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.8200 0.0000 6.0600 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.7800 0.0000 10.0200 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.7600 0.0000 12.0000 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.7400 0.0000 13.9800 5.0400 ;
+        END
+    END P6
+END mod69
+
+MACRO mod70
+    CLASS CORE ;
+    SIZE 11.88 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.2000 0.0000 1.4400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.8400 0.0000 4.0800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.1200 0.0000 9.3600 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.4400 0.0000 10.6800 5.0400 ;
+        END
+    END P7
+END mod70
+
+MACRO mod71
+    CLASS CORE ;
+    SIZE 13.20 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.0800 0.0000 2.3200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.2800 0.0000 4.5200 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.6800 0.0000 8.9200 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.8800 0.0000 11.1200 5.0400 ;
+        END
+    END P4
+END mod71
+
+MACRO mod72
+    CLASS CORE ;
+    SIZE 13.20 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.1800 0.0000 3.4200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.4800 0.0000 6.7200 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.7800 0.0000 10.0200 5.0400 ;
+        END
+    END P2
+END mod72
+
+MACRO mod73
+    CLASS CORE ;
+    SIZE 15.84 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.4700 0.0000 1.7100 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.0500 0.0000 3.2900 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.6400 0.0000 4.8800 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.2200 0.0000 6.4600 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.3800 0.0000 9.6200 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.9600 0.0000 11.2000 5.0400 ;
+        END
+    END P6
+    PIN P7
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 12.5500 0.0000 12.7900 5.0400 ;
+        END
+    END P7
+    PIN P8
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 14.1300 0.0000 14.3700 5.0400 ;
+        END
+    END P8
+END mod73
+
+MACRO mod74
+    CLASS CORE ;
+    SIZE 26.40 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.6800 0.0000 8.9200 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 17.4800 0.0000 17.7200 5.0400 ;
+        END
+    END P1
+END mod74
+
+MACRO mod75
+    CLASS CORE ;
+    SIZE 15.84 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.5200 0.0000 2.7600 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.1600 0.0000 5.4000 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.8000 0.0000 8.0400 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.4400 0.0000 10.6800 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.0800 0.0000 13.3200 5.0400 ;
+        END
+    END P4
+END mod75
+
+MACRO mod76
+    CLASS CORE ;
+    SIZE 21.12 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.1100 0.0000 4.3500 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.3300 0.0000 8.5700 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 12.5500 0.0000 12.7900 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 16.7700 0.0000 17.0100 5.0400 ;
+        END
+    END P3
+END mod76
+
+MACRO mod77
+    CLASS CORE ;
+    SIZE 15.84 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 2.1500 0.0000 2.3900 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 4.4100 0.0000 4.6500 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.6700 0.0000 6.9100 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.9300 0.0000 9.1700 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 11.1900 0.0000 11.4300 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 13.4500 0.0000 13.6900 5.0400 ;
+        END
+    END P5
+END mod77
+
+MACRO mod78
+    CLASS CORE ;
+    SIZE 14.52 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 1.7000 0.0000 1.9400 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.5100 0.0000 3.7500 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 5.3300 0.0000 5.5700 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 7.1400 0.0000 7.3800 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 8.9500 0.0000 9.1900 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 10.7700 0.0000 11.0100 5.0400 ;
+        END
+    END P5
+    PIN P6
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 12.5800 0.0000 12.8200 5.0400 ;
+        END
+    END P6
+END mod78
+
+MACRO mod79
+    CLASS CORE ;
+    SIZE 22.44 BY 5.04 ;
+    ORIGIN 0.00 0.00 ;
+    SYMMETRY x y ;
+    SITE core ;
+    PIN P0
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 3.0900 0.0000 3.3300 5.0400 ;
+        END
+    END P0
+    PIN P1
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 6.3000 0.0000 6.5400 5.0400 ;
+        END
+    END P1
+    PIN P2
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 9.5000 0.0000 9.7400 5.0400 ;
+        END
+    END P2
+    PIN P3
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 12.7000 0.0000 12.9400 5.0400 ;
+        END
+    END P3
+    PIN P4
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 15.9000 0.0000 16.1400 5.0400 ;
+        END
+    END P4
+    PIN P5
+        DIRECTION INOUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER METAL1 ;
+        RECT 19.1100 0.0000 19.3500 5.0400 ;
+        END
+    END P5
+END mod79
+
+END LIBRARY

@@ -1,0 +1,5 @@
+inputLefName    ibm10-5l.lef
+inputDefName    "ibm10-tr0-95.def ibm10-tr0-95-qpout.def"
+routeGlobal     TRUE
+routeFinal      TRUE
+grouteGgridMode align
